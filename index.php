@@ -2,18 +2,12 @@
     include('./Connection.php');
     include('./model/Person.php');
 
-    $database = new Connection();
-    $person = new Person($database->connect());
+    $connection = new Connection();
+    $person = new Person($connection->connect());
 
-    // $sqlObject = $person->findById(1);
+    $arrayAll = $person->findAll();
 
-    echo '<pre>',
-    var_dump(
-        $person->findAll(),
-        $person->findbyId(10),
-        $person->update(2, 'Joaquim', 'Teixeira'),
-        $person->create('Jorge', 'Washington', 'jorge.washington', '940041001')
-    ),
-    '</pre>';
-    
+    echo '<pre>';
+    dump($arrayAll);
+    echo '</pre>';
 ?>
