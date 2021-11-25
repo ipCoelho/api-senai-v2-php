@@ -12,7 +12,7 @@
     $model = new Person($database->connect());
     $controller = new controllerPerson($model);
 
-    $date = $controller->route();
+    $date = $controller->router();
 
     echo(json_encode(array(
         "status"=>"200",

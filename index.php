@@ -8,6 +8,6 @@
     $arrayAll = $person->findAll();
 
     echo '<pre>';
-    dump($arrayAll);
+    var_dump($arrayAll);
     echo '</pre>';
 ?>

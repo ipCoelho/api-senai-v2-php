@@ -12,7 +12,7 @@ class ControllerPerson {
         $json = file_get_contents("php://input");
         $arrayPerson = json_decode($json, true);
 
-        $this->_codPessoa = $arrayPerson->cod_pessoa; ?? null;
+        $this->_codPessoa = $arrayPerson->cod_pessoa ?? null;
     }
 
     function router() {
@@ -22,7 +22,6 @@ class ControllerPerson {
                 if (isset($this->_codPessoa)) {
                     return $this->_codPessoa->findById();
                 }
-
                 return $this->_modelPerson->findAll();
             break;
             
