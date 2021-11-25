@@ -33,7 +33,10 @@
             $statement->bindValue(5, $this->_fotografia);
 
             if ($statement->execute()) {
-                return "Status: 200 : Message: Sucess on creating a new Person.";
+                return json_encode(array(
+                    'status' => 200,
+                    'message' => 'Succes on creating a new Person.'
+                ));
             } else {
                 return "Status: 400 : Message: Error on creating a new Person.";
             }
@@ -49,10 +52,9 @@
 
         public function findById() {
             $query = "SELECT * FROM tbl_pessoa WHERE cod_pessoa = ?;";
+
             $statement = $this->_connection->prepare($query);
-
-            $statement->bindValue(1, $this->codPessoa);
-
+            $statement->bindValue(1, $this->_codPessoa);
             $statement->execute();
 
             return $statement->fetchAll(\PDO::FETCH_ASSOC);
